@@ -10,15 +10,14 @@ class BooksApp extends Component {
     books: []
   }
 
-  componentDidMount() {
-    this.showAll();
-  }
-
-
   showAll = () => {
     BooksAPI.getAll().then((books) => {
       this.setState({ books })
     });
+  }
+
+  componentDidMount() {
+    this.showAll();
   }
 
   render() {

@@ -10,7 +10,8 @@ class Book extends Component {
   }
 
   changeShelf = (book, currentShelf) => {
-    BooksAPI.update(book, currentShelf).then(this.showAll())
+    BooksAPI.update(book, currentShelf)
+      .then(this.showAll())
   }
 
   render() {
@@ -33,14 +34,14 @@ class Book extends Component {
                         >
 
                         </div>
-                        <div className="book-shelf-changer">
-                            <select onChange={(e) => {this.changeShelf(thisBook, e.target.value)}}
+                       <div className="book-shelf-changer">
+                            <select onChange={(event) => {this.changeShelf(thisBook, event.target.value)}}
                                     value={bookShelf}>
-                                <option value="move" disabled>Move to...</option>
+                                <option value="move" disabled>Move book to...</option>
                                 <option value="currentlyReading">Currently Reading</option>
                                 <option value="wantToRead">Want to Read</option>
                                 <option value="read">Read</option>
-                                <option value="none">None</option>
+                                <option value="remove">Remove</option>
                             </select>
                         </div>
                     </div>
@@ -67,13 +68,13 @@ class Book extends Component {
 
                         </div>
                         <div className="book-shelf-changer">
-                            <select onChange={(e) => {this.changeShelf(thisBook, e.target.value)}}
+                            <select onChange={(event) => {this.changeShelf(thisBook, event.target.value)}}
                                     value={thisBook.shelf}>
                                 <option value="move" disabled>Move to...</option>
                                 <option value="currentlyReading">Currently Reading</option>
                                 <option value="wantToRead">Want to Read</option>
                                 <option value="read">Read</option>
-                                <option value="none">None</option>
+                                <option value="remove">Remove</option>
                             </select>
                         </div>
                     </div>
