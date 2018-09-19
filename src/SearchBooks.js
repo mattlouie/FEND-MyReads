@@ -12,14 +12,14 @@ class SearchBooks extends Component {
     shelvedBooks: []
   }
 
-  showAll = () => {
+  updateBooks = () => {
     BooksAPI.getAll().then((shelvedBooks) => {
       this.setState({shelvedBooks})
     })
   }
 
   componentWillMount() {
-    this.showAll();
+    this.updateBooks();
   }
 
   updateQuery = (query) => {

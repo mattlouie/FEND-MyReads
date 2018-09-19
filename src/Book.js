@@ -1,5 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import * as BooksAPI from './BooksAPI';
+import PropTypes from 'prop-types';
+import BookThumbnail from './icons/BookThumbnail.png'
 
 class Book extends Component {
 
@@ -26,7 +28,7 @@ class Book extends Component {
                             style={{
                                 width: 128,
                                 height: 193,
-                                backgroundImage: `url(${thisBook.imageLinks.thumbnail})`,
+                                backgroundImage: `url(${thisBook.imageLinks.thumbnail} : book)`,
                                 backgroundSize: 'cover',
                                 backgroundPosition: 'center'
                             }}
@@ -49,6 +51,13 @@ class Book extends Component {
             </li>
         )
     }
-  }
+
+    /*Book.propTypes = {
+      bookShelf: PropTypes.string.isRequired,
+      thisBook: PropTypes.string.isRequired
+    }*/
+
+
+}
 
 export default Book
