@@ -2,7 +2,6 @@ import React, { Component} from 'react'
 import * as BooksAPI from './BooksAPI'
 import { Link } from 'react-router-dom'
 import Book from './Book';
-import PropTypes from 'prop-types'
 
 class SearchBooks extends Component {
 
@@ -80,8 +79,8 @@ class SearchBooks extends Component {
               <h3>{query !== '' ? `${books.length} Books That Match` : ``}</h3>
               <button onClick={this.clearQuery}>Clear</button>
               <ol className='books-grid'>
-                {books.map((book) => (
-                  <Book thisBook={book} bookShelf={book.shelf}/>
+                {books.map((book, idx) => (
+                  <Book key={idx} thisBook={book} bookShelf={book.shelf}/>
                 ))}
               </ol>
           </div>

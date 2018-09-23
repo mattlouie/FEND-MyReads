@@ -12,14 +12,14 @@ class ListBooks extends Component {
               <h1>MyReads</h1>
           </div>
 
-          <div className='list-books-content' key={books.id}>
+          <div className='list-books-content'>
               <div>
                   <div className='bookshelf'>
                       <h2 className='bookshelf-title'>Currently Reading</h2>
                       <div className='bookshelf-books'>
                           <ol className='books-grid'>
-                            {books.filter((book) => {return book.shelf === 'currentlyReading'}).map((book) => (
-                              <Book thisBook={book} bookShelf={book.shelf}/>
+                            {books.filter((book, id) => {return book.shelf === 'currentlyReading'}).map((book) => (
+                              <Book key={books.id} thisBook={book} bookShelf={book.shelf}/>
                             ))}
                           </ol>
                       </div>
@@ -29,8 +29,8 @@ class ListBooks extends Component {
                       <h2 className='bookshelf-title'>Want to Read</h2>
                       <div className='bookshelf-books'>
                           <ol className='books-grid'>
-                              {books.filter((book) => {return book.shelf === 'wantToRead'}).map((book) => (
-                                <Book thisBook={book} bookShelf={book.shelf}/>
+                              {books.filter((book, id) => {return book.shelf === 'wantToRead'}).map((book) => (
+                                <Book key={books.id} thisBook={book} bookShelf={book.shelf}/>
                               ))}
                           </ol>
                       </div>
@@ -40,8 +40,8 @@ class ListBooks extends Component {
                       <h2 className='bookshelf-title'>Read</h2>
                       <div className='bookshelf-books'>
                           <ol className='books-grid'>
-                              {books.filter((book) => {return book.shelf === 'read'}).map((book) => (
-                                <Book thisBook={book} bookShelf={book.shelf}/>
+                              {books.filter((book, id) => {return book.shelf === 'read'}).map((book) => (
+                                <Book key={books.id} thisBook={book} bookShelf={book.shelf}/>
                               ))}
                           </ol>
                       </div>
