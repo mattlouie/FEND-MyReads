@@ -19,7 +19,7 @@ class ListBooks extends Component {
                       <div className='bookshelf-books'>
                           <ol className='books-grid'>
                             {books.filter((book) => {return book.shelf === 'currentlyReading'}).map((book) => (
-                              <Book thisBook={book} bookShelf={book.shelf}/>
+                              <Book key={book.id} thisBook={book} bookShelf={book.shelf}/>
                             ))}
                           </ol>
                       </div>
@@ -30,7 +30,7 @@ class ListBooks extends Component {
                       <div className='bookshelf-books'>
                           <ol className='books-grid'>
                               {books.filter((book) => {return book.shelf === 'wantToRead'}).map((book) => (
-                                <Book thisBook={book} bookShelf={book.shelf}/>
+                                <Book key={book.id} thisBook={book} bookShelf={book.shelf}/>
                               ))}
                           </ol>
                       </div>
@@ -41,7 +41,7 @@ class ListBooks extends Component {
                       <div className='bookshelf-books'>
                           <ol className='books-grid'>
                               {books.filter((book) => {return book.shelf === 'read'}).map((book) => (
-                                <Book thisBook={book} bookShelf={book.shelf}/>
+                                <Book key={book.id} thisBook={book} bookShelf={book.shelf}/>
                               ))}
                           </ol>
                       </div>

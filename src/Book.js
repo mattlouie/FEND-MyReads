@@ -36,12 +36,12 @@ class Book extends Component {
                         </div>
                        <div className="book-shelf-changer">
                             <select onChange={(event) => {this.changeShelf(thisBook, event.target.value)}}
-                                    value={bookShelf}>
+                                    defaultValue={thisBook.shelf ? thisBook.shelf : 'none'}>
                                 <option value="move" disabled>Move book to...</option>
                                 <option value="currentlyReading">Currently Reading</option>
                                 <option value="wantToRead">Want to Read</option>
                                 <option value="read">Read</option>
-                                <option value="remove">Remove</option>
+                                <option value="none">Remove</option>
                             </select>
                         </div>
                     </div>
@@ -69,12 +69,12 @@ class Book extends Component {
                         </div>
                         <div className="book-shelf-changer">
                             <select onChange={(event) => {this.changeShelf(thisBook, event.target.value)}}
-                                    value={thisBook.shelf}>
+                                    defaultValue={thisBook.shelf ? thisBook.shelf : 'none'}>
                                 <option value="move" disabled>Move to...</option>
                                 <option value="currentlyReading">Currently Reading</option>
                                 <option value="wantToRead">Want to Read</option>
                                 <option value="read">Read</option>
-                                <option value="remove">Remove</option>
+                                <option value="none">Remove</option>
                             </select>
                         </div>
                     </div>

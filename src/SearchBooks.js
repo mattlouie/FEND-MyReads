@@ -2,6 +2,7 @@ import React, { Component} from 'react'
 import * as BooksAPI from './BooksAPI'
 import { Link } from 'react-router-dom'
 import Book from './Book';
+import debounce from 'lodash.debounce'
 
 class SearchBooks extends Component {
 
@@ -15,6 +16,14 @@ class SearchBooks extends Component {
     BooksAPI.getAll().then((shelvedBooks) => {
       this.setState({shelvedBooks})
     })
+  }
+
+  updateQueryDebounced = debounce(this.updateQuery, 1000)
+
+  handleChange = (e) => {
+    const query = e.target.value
+    this.setState({ query })
+    this.updateQueryDebounced(query)
   }
 
   componentWillMount() {
@@ -79,8 +88,8 @@ class SearchBooks extends Component {
               <h3>{query !== '' ? `${books.length} Books That Match` : ``}</h3>
               <button onClick={this.clearQuery}>Clear</button>
               <ol className='books-grid'>
-                {books.map((book, idx) => (
-                  <Book key={idx} thisBook={book} bookShelf={book.shelf}/>
+                {books.map((book) => (
+                  <Book key={books.id} thisBook={book} bookShelf={book.shelf}/>
                 ))}
               </ol>
           </div>
